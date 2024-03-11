@@ -113,7 +113,7 @@ app.get('/user', async (request, response) => {
 app.post('/logout', async (request, response) => {
     response.cookie('jwt', '', {maxAge: 0});
     response.send({
-        message: 'success'
+        message: 'Success'
     });
 })
 
