@@ -16,14 +16,13 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const handleDeleteTask = (id) => {
-    console.log("DEL ", id);
-    axios.delete('http://localhost:3000/delete/'+id)
+    axios.delete('http://localhost:3000/todos/'+id)
     .then(result => console.log(result))
     .catch(error => console.log(error));
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3000/get')
+    axios.get('http://localhost:3000/todos')
     .then(result => setTodos(result.data))
     .catch(error => console.log(error));
   })
