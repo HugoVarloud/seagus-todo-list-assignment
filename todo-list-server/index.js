@@ -3,15 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const TodoModel = require('./src/Models/Todo');
 const User = require('./src/Models/User');
+const Todo = require('./src/Models/Todo');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
 
 const app = express();
-app.use(cors({
-        credentials: true,
-        origin: ['http://localhost:5173/']
-    }
+app.use(cors(
 ));
 app.use(express.json());
 app.use(cookieParser());
@@ -115,6 +113,11 @@ app.post('/logout', async (request, response) => {
     response.send({
         message: 'Success'
     });
+})
+
+app.get('/todos', async (request, response) => {
+    const todosList = await Todo.find();
+    response.send(todosList);
 })
 
 app.listen(3000, () => {
