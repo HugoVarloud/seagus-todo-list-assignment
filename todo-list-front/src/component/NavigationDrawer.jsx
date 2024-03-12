@@ -18,6 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { Link } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -117,16 +118,22 @@ export default function NavigationDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Se connecter', "S'inscrire"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
+            <ListItem disablePadding>
+              <ListItemButton href='/register'>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"S'inscrirer"} />
               </ListItemButton>
             </ListItem>
-          ))}
+            <ListItem disablePadding>
+              <ListItemButton href="/login">
+                  <ListItemIcon>
+                    <MailIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={'Se connecter'} />
+              </ListItemButton>
+            </ListItem>
         </List>
         <Divider />
       </Drawer>

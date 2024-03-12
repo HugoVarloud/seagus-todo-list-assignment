@@ -9,8 +9,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
-      <NavigationDrawer />
       <BrowserRouter>
+        <NavigationDrawer />
         <Routes>
           <Route path="/" exact element={<Todo/>}></Route>
           <Route path="/login" element={<LoginForm/>}></Route>
